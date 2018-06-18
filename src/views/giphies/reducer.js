@@ -2,7 +2,7 @@
  * @overview Giphies reducer.
  */
 import { handleActions } from 'redux-actions';
-import { fromJS, Map } from 'immutable';
+import { fromJS } from 'immutable';
 
 const initialState = fromJS({
   records: [],

@@ -1,4 +1,4 @@
-import { fromJS, Map } from 'immutable';
+import { fromJS } from 'immutable';
 import isEmpty from 'lodash/isEmpty';
 import reducer from '../reducer';
 
