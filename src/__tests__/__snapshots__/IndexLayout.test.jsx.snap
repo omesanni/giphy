@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders css file 1`] = `
+<html
+  lang="en"
+>
+  <head>
+    <meta
+      charSet="utf-8"
+    />
+    <meta
+      content="width=device-width, initial-scale=1"
+      name="viewport"
+    />
+    <link
+      href="/images/favicon.ico"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <title>
+      Omeyimi Sanni
+    </title>
+    <link
+      href="app.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div
+      id="app"
+    />
+    <script
+      src="app.js"
+    />
+  </body>
+</html>
+`;
+
+exports[`renders without file 1`] = `
+<html
+  lang="en"
+>
+  <head>
+    <meta
+      charSet="utf-8"
+    />
+    <meta
+      content="width=device-width, initial-scale=1"
+      name="viewport"
+    />
+    <link
+      href="/images/favicon.ico"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <title>
+      Omeyimi Sanni
+    </title>
+  </head>
+  <body>
+    <div
+      id="app"
+    />
+    <script
+      src="app.js"
+    />
+  </body>
+</html>
+`;

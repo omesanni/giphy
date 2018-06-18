@@ -1,0 +1,13 @@
+.rank-controls {
+  display: flex;
+  justify-content: center;
+
+  &__up,
+  &__down {
+    @include cursor-pointer;
+
+    &:hover {
+      color: lighten($dark, 20%);
+    }
+  }
+}

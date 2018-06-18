@@ -1,0 +1,5 @@
+export const CREATE_MODAL_STORE = 'CREATE_MODAL_STORE';
+export const DELETE_MODAL_STORE = 'DELETE_MODAL_STORE';
+export const OPEN_MODAL = 'OPEN_MODAL';
+export const CLOSE_MODAL = 'CLOSE_MODAL';
+export const MODAL_ERRORS = 'MODAL_ERRORS';

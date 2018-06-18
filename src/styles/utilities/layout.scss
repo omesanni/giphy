@@ -1,0 +1,11 @@
+.object-fit-cover {
+  object-fit: cover;
+}
+
+.no-pointer-events {
+  pointer-events: none;
+}
+
+.cursor-pointer {
+  @include cursor-pointer;
+}
