@@ -10,5 +10,5 @@ This app was built with ReactJS.
 `npm test`
 
 ## E2E tests
-1. npm run webdriver-update
-2. npm run e2e
+1. `npm run webdriver-update`
+2. `npm run e2e`
