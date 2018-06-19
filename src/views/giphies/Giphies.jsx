@@ -294,10 +294,12 @@ export class Giphies extends React.Component {
             defaultValue={this.state.pageLimit}
             onChange={(e) => {
               const { value } = e.target;
+              const { pagination: { current } } = this.props.giphies;
+              const offset = (current - 1) * this.state.pageLimit;
 
               this.setState(() => ({
                 pageLimit: value,
-              }), () => this.handleSearch(0, true));
+              }), () => this.handleSearch(offset, true));
             }}
           >
             {this.pageLimitOptions.map((opt) => (
