@@ -81,20 +81,23 @@ exports[`Giphies renders 1`] = `
       >
         <select
           className="form-control form-control-sm"
-          defaultValue="Order By"
+          defaultValue="Order"
           id="sort-select"
           onChange={[Function]}
         >
           <option
             disabled={true}
           >
-            Order By
+            Order
           </option>
           <option>
             asc
           </option>
           <option>
             desc
+          </option>
+          <option>
+            random
           </option>
         </select>
       </div>

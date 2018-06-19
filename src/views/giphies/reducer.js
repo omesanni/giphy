@@ -3,6 +3,7 @@
  */
 import { handleActions } from 'redux-actions';
 import { fromJS } from 'immutable';
+import shuffle from 'lodash/shuffle';
 
 const initialState = fromJS({
   records: [],
@@ -40,11 +41,15 @@ export default handleActions({
     return state.set('records', fromJS(newRecords));
   },
   SORT_GIPHIES: (state, action) => {
-    const descending = action.data.dir === 'desc';
+    const { dir } = action.data;
     const records = state.get('records').toJS();
 
+    if (dir === 'random') {
+      return state.set('records', fromJS(shuffle(records)));
+    }
+
     const newRecords = records.sort((a, b) => {
-      return descending ? (b._score - a._score) : (a._score - b._score);
+      return dir === 'desc' ? (b._score - a._score) : (a._score - b._score);
     });
 
     return state.set('records', fromJS(newRecords));

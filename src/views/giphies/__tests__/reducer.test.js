@@ -57,20 +57,20 @@ it('should update a particular giphy in records array', () => {
 });
 
 describe('SORT_GIPHIES', () => {
+  const baseState = {
+    records: [
+      { id: 'ccc', _score: 5 },
+      { id: 'ddd', _score: 2 },
+      { id: 'vvv', _score: 10 },
+    ],
+  };
+
   it('should sort giphies array in ascending order', () => {
     const action = {
       type: 'SORT_GIPHIES',
       data: { dir: 'asc' },
     };
 
-    const baseState = {
-      records: [
-        { id: 'ccc', _score: 5 },
-        { id: 'ddd', _score: 2 },
-        { id: 'vvv', _score: 10 },
-      ],
-    };
-
     const newState = reducer(fromJS(baseState), action);
     const result = [
       { id: 'ddd', _score: 2 },
@@ -87,14 +87,6 @@ describe('SORT_GIPHIES', () => {
       data: { dir: 'desc' },
     };
 
-    const baseState = {
-      records: [
-        { id: 'ccc', _score: 5 },
-        { id: 'ddd', _score: 2 },
-        { id: 'vvv', _score: 10 },
-      ],
-    };
-
     const newState = reducer(fromJS(baseState), action);
     const result = [
       { id: 'vvv', _score: 10 },
@@ -105,27 +97,15 @@ describe('SORT_GIPHIES', () => {
     expect(newState.get('records').toJS()).toEqual(result);
   });
 
-  it('should sort giphies array in descending order', () => {
+  it('should sort giphies array in random order', () => {
     const action = {
       type: 'SORT_GIPHIES',
-      data: { dir: 'desc' },
+      data: { dir: 'random' },
     };
 
-    const baseState = {
-      records: [
-        { id: 'ccc', _score: 5 },
-        { id: 'ddd', _score: 2 },
-        { id: 'vvv', _score: 10 },
-      ],
-    };
+    const records = [...baseState.records, ...baseState.records];
+    const newState = reducer(fromJS({ ...baseState, records }), action);
 
-    const newState = reducer(fromJS(baseState), action);
-    const result = [
-      { id: 'vvv', _score: 10 },
-      { id: 'ccc', _score: 5 },
-      { id: 'ddd', _score: 2 },
-    ];
-
-    expect(newState.get('records').toJS()).toEqual(result);
+    expect(newState.get('records').toJS()).not.toEqual(records);
   });
 });

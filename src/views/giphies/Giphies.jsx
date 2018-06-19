@@ -21,7 +21,7 @@ export class Giphies extends React.Component {
     this.modalId = 'giphy-details';
     this.searchNode = null;
     this.pageLimitOptions = [10, 25, 50];
-    this.sortingOptions = ['asc', 'desc'];
+    this.sortingOptions = ['asc', 'desc', 'random'];
 
     this.state = {
       pageLimit: 25,
@@ -310,7 +310,7 @@ export class Giphies extends React.Component {
           <select
             id={'sort-select'}
             className={'form-control form-control-sm'}
-            defaultValue={'Order By'}
+            defaultValue={'Order'}
             onChange={(e) => {
               const { value } = e.target;
 
@@ -319,7 +319,7 @@ export class Giphies extends React.Component {
               }), () => this.props.actions.sortGiphies(value));
             }}
           >
-            <option disabled>{'Order By'}</option>
+            <option disabled>{'Order'}</option>
             {this.sortingOptions.map((dir) => (
               <option key={dir}>{dir}</option>
             ))}

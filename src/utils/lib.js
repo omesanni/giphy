@@ -3,8 +3,8 @@ import numeral from 'numeral';
 /**
  * Check if a number is within range for pagination, etc.
  * @param {Object} range
- * @param {number} i
- * @param {number} total
+ * @param {Number} i
+ * @param {Number} total
  */
 export function isWithinRange(range, i, total) {
   return (
@@ -17,9 +17,9 @@ export function isWithinRange(range, i, total) {
 
 /**
  * Set a range for pagination, etc.
- * @param {number} current
- * @param {number} spread
- * @param {number} total
+ * @param {Number} current
+ * @param {Number} spread
+ * @param {Number} total
  */
 export function setRange(current, spread, total) {
   if (current <= (1 + spread)) {
@@ -72,7 +72,7 @@ export function fetchFromLocalStorage(key) {
 /**
  * Converts object to query string
  * @param  {Object} query Query object
- * @return {String} queryStr
+ * @return {String} queryStr Query string
  */
 export function stringifyQuery(query = {}) {
   let queryStr = '';
