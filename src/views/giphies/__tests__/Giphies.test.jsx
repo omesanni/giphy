@@ -286,7 +286,7 @@ describe('Giphies', () => {
 
     it('should not perform search if there\'s no search value', () => {
       component = mountComponent();
-      component.instance().searchNode = {}
+      component.instance().searchNode = {};
 
       component.find('#search-btn').simulate('click');
 

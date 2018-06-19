@@ -45,7 +45,7 @@ export class Giphies extends React.Component {
       const { records } = this.props.giphies;
 
       const nextRecord = nextRecords.find(n => (n.id === focusedGiphy.id));
-      const record = records.find(g => (g.id === focusedGiphy.id));
+      const record = records.find(r => (r.id === focusedGiphy.id));
 
       if (!isEqual(record, nextRecord)) {
         this.setState(() => ({ focusedGiphy: nextRecord }));
