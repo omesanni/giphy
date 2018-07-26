@@ -10,7 +10,7 @@
     "e2e": "npm run webdriver-start & protractor",
     "webdriver-start": "webdriver-manager start",
     "webdriver-update": "./node_modules/.bin/webdriver-manager update",
-    "heroku-postbuild": "npm run build",
+    "heroku-postbuild": "npm run build"
   },
   "engines": {
     "node": "~7.2.0",
