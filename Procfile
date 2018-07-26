@@ -1,1 +1,1 @@
-web: node tasks/build && node server
+web: npm start
