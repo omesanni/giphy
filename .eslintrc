@@ -5,6 +5,9 @@
     "browser": true,
     "node": true
   },
+  "globals": {
+    "SEARCH_API": true
+  },
   "rules": {
     "class-methods-use-this": "off",
     "comma-dangle": ["error", {
@@ -30,5 +33,11 @@
     "jsx-a11y/no-static-element-interactions": "off",
     "react/jsx-curly-brace-presence": "off",
     "react/prop-types": ["error", { "ignore": [ "translate" ] }],
+    "no-underscore-dangle": ["error", { "allow": ["_score"] }],
+    "jsx-a11y/label-has-for": [2, {
+      "required": {
+        "some": ["nesting", "id"]
+      }
+    }]
   }
 }

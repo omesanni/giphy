@@ -2,7 +2,7 @@
  * @overview Bundle the app using webpack.
  */
 const webpack = require('webpack');
-const webpackConfig = require('../webpack.config');
+const webpackConfig = require('../config/webpack.prod.config');
 
 if (process.env.NODE_ENV === 'production') {
   webpack(webpackConfig).run((err) => {

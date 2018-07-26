@@ -1,13 +1,7 @@
-require('babel-core/register');
-
 const path = require('path');
 const express = require('express');
-const React = require('react');
-const { renderToStaticMarkup } = require('react-dom/server');
-
-const config = require('../webpack.config');
+const config = require('../config/webpack.base.config');
 const applyDevMiddlewares = require('./applyDevMiddlewares');
-const IndexLayout = require('../src/IndexLayout');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -20,13 +14,9 @@ if (DEBUG) {
 }
 
 app.get('*', (req, res) => {
-  const html = renderToStaticMarkup(React.createElement(IndexLayout, {
-    showCSS: !DEBUG,
-  }));
-
-  res.status(200).send(`<!doctype html>${html}`);
+  res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
 app.listen(port, () => {
-  console.log(`The server is running at http://localhost:${port}`);
+  console.log(`The server is running at http://localhost:${port}`); // eslint-disable-line
 });

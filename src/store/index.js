@@ -23,7 +23,7 @@ export function configureStore(initialState = {}) {
   // make reducers hot reloadable
   if (module.hot) {
     module.hot.accept('./reducers', () => {
-      import('./reducers').then((reducerModule) => (
+      import('./reducers').then(reducerModule => (
         store.replaceReducer(reducerModule.default)
       ));
     });

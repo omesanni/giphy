@@ -7,7 +7,9 @@ module.exports = (ctx) => {
       'postcss-cssnext': {
         browsers: ['> 1%', 'last 2 versions'],
       },
-      cssnano: !DEBUG,
+      cssnano: !DEBUG ? {
+        autoprefixer: false,
+      } : false,
     },
   };
 };
