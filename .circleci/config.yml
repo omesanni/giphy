@@ -11,7 +11,7 @@ jobs:
 
   build:
     docker:
-      - image: circleci/node:7.9.0
+      - image: cypress/base:8
 
     steps:
       - checkout
@@ -19,7 +19,6 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
 
       - run: npm install
-      - run: npm run webdriver-update
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
@@ -28,7 +27,7 @@ jobs:
       - run: npm run lint
       - run: npm test
       - run:
-          command: npm start
+          command: NODE_ENV=production npm start
           background: true
 
       - run: npm run e2e

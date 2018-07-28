@@ -1,23 +1,14 @@
 class Giphies {
   constructor() {
-    this.searchInput = element(by.id('search-input'));
-    this.searchButton = element(by.id('search-btn'));
-    this.loader = element(by.className('loader'));
-    this.modal = element(by.className('modal'));
-    this.pageItem = element.all(by.className('page-item')).get(3);
-    this.allGiphies = element.all(by.css('[id^=giphy-]'));
-    this.upvoteIcon = by.className('rank-controls__up');
-    this.downvoteIcon = by.className('rank-controls__down');
-    this.outerCardContainer = element(by.css('.card.card--emboss'));
-
-    this.pageLimitSelect = element(by.id('page-limit-select'))
-      .element(by.cssContainingText('option', '50'));
-    this.sortingOption = element(by.id('sort-select'))
-      .element(by.cssContainingText('option', 'asc'));
+    this.searchInput = () => cy.get('#search-input');
+    this.searchButton = () => cy.get('#search-btn');
+    this.allGiphies = () => cy.get('[id^=giphy-]');
+    this.modal = () => cy.get('.modal');
+    this.sortingSelect = () => cy.get('#sort-select');
   }
 
   startBrowser() {
-    browser.get(browser.baseUrl);
+    cy.visit('/');
   }
 }
 

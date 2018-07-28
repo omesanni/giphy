@@ -9,6 +9,7 @@
     "SEARCH_API": true,
     "it": true,
     "by": true,
+    "cy": true,
     "jest": true,
     "expect": true,
     "afterEach": true,
@@ -16,7 +17,7 @@
     "describe": true,
     "browser": true,
     "element": true,
-    "protractor": true
+    "protractor": true,
   },
   "rules": {
     "class-methods-use-this": "off",
