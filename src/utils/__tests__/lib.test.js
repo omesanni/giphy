@@ -11,16 +11,6 @@ describe('lib', () => {
     });
   });
 
-  describe('saveToLocalStorage()', () => {
-    it('should store data to local storage', () => {
-      const spy = jest.spyOn(localStorage, 'setItem');
-
-      lib.saveToLocalStorage('abc', { name: 'ome' });
-
-      expect(spy).toHaveBeenCalled();
-    });
-  });
-
   describe('fetchFromLocalStorage()', () => {
     it('should fetch data from local storage', () => {
       const data = { name: 'john' };

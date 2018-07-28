@@ -17,6 +17,4 @@ const localStorage = (() => {
   };
 })();
 
-Object.defineProperty(window, 'localStorage', {
-  value: localStorage,
-});
+export default localStorage;

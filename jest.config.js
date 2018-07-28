@@ -1,5 +1,5 @@
 module.exports = {
-  setupFiles: ['<rootDir>/src/__mocks__/localStorageMock.js'],
+  setupFiles: ['jest-localstorage-mock'],
   setupTestFrameworkScriptFile: '<rootDir>/tasks/setupUnitTests.js',
   collectCoverageFrom: ['src/**/*.{js,jsx}'],
   testURL: 'http://testing',
