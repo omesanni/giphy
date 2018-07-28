@@ -31,8 +31,4 @@ jobs:
           command: npm start
           background: true
 
-      - run:
-          command: npm run webdriver-start
-          background: true
-
-      - run: npm run protractor
+      - run: npm run e2e
