@@ -1,6 +1,6 @@
 exports.config = {
   framework: 'mocha',
-  seleniumServerJar: './node_modules/selenium-server-standalone-jar/jar/selenium-server-standalone-3.13.0.jar',
+  seleniumAddress: 'http://localhost:4444/wd/hub',
   baseUrl: `http://localhost:${process.env.PORT || 3000}`,
   specs: ['e2e/**/*.test.js'],
   onPrepare: () => {

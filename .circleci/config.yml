@@ -19,6 +19,7 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
 
       - run: npm install
+      - run: npm run webdriver-update
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
@@ -30,4 +31,8 @@ jobs:
           command: npm start
           background: true
 
-      - run: npm run e2e
+      - run:
+          command: npm run webdriver-start
+          background: true
+
+      - run: npm run protractor
