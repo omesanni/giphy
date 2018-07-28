@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import isEqual from 'lodash/isEqual';
-import numeral from 'numeral';
+import classnames from 'classnames';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faSearch from '@fortawesome/fontawesome-free-solid/faSearch';
 import { formatNumber, saveToLocalStorage } from '../../utils/lib';
@@ -69,7 +69,7 @@ export class Giphies extends React.Component {
     const preferredVal = paginationFetch ? searchVal : value;
 
     if (!preferredVal) {
-      return;
+      return undefined;
     }
 
     // query object in the format needed by giphy API
@@ -83,10 +83,8 @@ export class Giphies extends React.Component {
       .then((res) => {
         this.setState(() => ({ searchVal: preferredVal }));
 
-        // sort records after
-        if (res.data && sortDirection) {
-          actions.sortGiphies(sortDirection);
-        }
+        // sort records after fetching giphies
+        return (res.data && sortDirection) && actions.sortGiphies(sortDirection);
       });
   }
 
@@ -104,34 +102,25 @@ export class Giphies extends React.Component {
     const DOWNVOTED_BEFORE_AND_DOWNVOTING = giphy.downvoted && !upvoting;
     const DOWNVOTED_BEFORE_AND_UPVOTING = giphy.downvoted && upvoting;
 
-    let downvoted, upvoted;
+    let downvoted, upvoted; // eslint-disable-line
     let score = giphy._score;
 
-    switch (true) {
-      case UPVOTED_BEFORE_AND_UPVOTING || UPVOTED_BEFORE_AND_DOWNVOTING: {
-        score -= 1;
-        upvoted = !giphy.upvoted;
-        downvoted = UPVOTED_BEFORE_AND_DOWNVOTING;
-        break;
-      }
-      case DOWNVOTED_BEFORE_AND_DOWNVOTING || DOWNVOTED_BEFORE_AND_UPVOTING: {
-        score += 1;
-        downvoted = !giphy.downvoted;
-        upvoted = DOWNVOTED_BEFORE_AND_UPVOTING;
-        break;
-      }
-      case FRESH_SLATE && upvoting: {
-        score += 1;
-        upvoted = true;
-        downvoted = !!downvoted;
-        break;
-      }
-      case FRESH_SLATE && !upvoting: {
-        score -= 1;
-        downvoted = true;
-        upvoted = !!upvoted;
-        break;
-      }
+    if (UPVOTED_BEFORE_AND_UPVOTING || UPVOTED_BEFORE_AND_DOWNVOTING) {
+      score -= 1;
+      upvoted = !giphy.upvoted;
+      downvoted = UPVOTED_BEFORE_AND_DOWNVOTING;
+    } else if (DOWNVOTED_BEFORE_AND_DOWNVOTING || DOWNVOTED_BEFORE_AND_UPVOTING) {
+      score += 1;
+      downvoted = !giphy.downvoted;
+      upvoted = DOWNVOTED_BEFORE_AND_UPVOTING;
+    } else if (FRESH_SLATE && upvoting) {
+      score += 1;
+      upvoted = true;
+      downvoted = !!downvoted;
+    } else if (FRESH_SLATE && !upvoting) {
+      score -= 1;
+      downvoted = true;
+      upvoted = !!upvoted;
     }
 
     const update = {
@@ -166,6 +155,7 @@ export class Giphies extends React.Component {
             <div className={'col-sm-6 col-md-5'}>
               <img
                 className={'card-img h-75'}
+                alt={focusedGiphy.title}
                 src={focusedGiphy.images.downsized_medium.url}
               />
 
@@ -260,13 +250,20 @@ export class Giphies extends React.Component {
    */
   renderHeaderControls() {
     return (
-      <div className={'form-row'}>
+      <form
+        id={'header-control-form'}
+        className={'form-row'}
+        onSubmit={(e) => {
+          e.preventDefault();
+          this.handleSearch();
+        }}
+      >
         <div className={'form-group col-lg-4 col-sm-6 col-md-5 mb-0 mr-auto'}>
           <div className={'input-group'}>
             <input
               id={'search-input'}
               type={'text'}
-              ref={node => (this.searchNode = node)}
+              ref={(node) => { this.searchNode = node; }}
               placeholder={'Search...'}
               className={'form-control form-control-sm'}
             />
@@ -274,8 +271,7 @@ export class Giphies extends React.Component {
             <div className={'input-group-append'}>
               <button
                 id={'search-btn'}
-                type={'button'}
-                onClick={() => this.handleSearch()}
+                type={'submit'}
                 className={'btn btn-outline-secondary'}
               >
                 <FontAwesomeIcon icon={faSearch} />
@@ -285,7 +281,11 @@ export class Giphies extends React.Component {
         </div>
 
         <div className={'form-group col-lg-2 col-sm-3 justify-content-end d-flex mb-0'}>
-          <label className={'mr-3 d-none d-sm-block text-muted'}>
+          <label
+            id={'page-limit-label'}
+            htmlFor={'page-limit-select'}
+            className={'mr-3 d-none d-sm-block text-muted'}
+          >
             {'Limit'}
           </label>
           <select
@@ -302,7 +302,7 @@ export class Giphies extends React.Component {
               }), () => this.handleSearch(offset, true));
             }}
           >
-            {this.pageLimitOptions.map((opt) => (
+            {this.pageLimitOptions.map(opt => (
               <option key={opt}>{opt}</option>
             ))}
           </select>
@@ -322,12 +322,12 @@ export class Giphies extends React.Component {
             }}
           >
             <option disabled>{'Order'}</option>
-            {this.sortingOptions.map((dir) => (
+            {this.sortingOptions.map(dir => (
               <option key={dir}>{dir}</option>
             ))}
           </select>
         </div>
-      </div>
+      </form>
     );
   }
 
@@ -336,7 +336,8 @@ export class Giphies extends React.Component {
    * @return {JSX}
    */
   renderGiphyCards() {
-    const { records, fetching, error, pagination } = this.props.giphies;
+    const { giphies, actions } = this.props;
+    const { records, fetching, error, pagination } = giphies;
     const { pages, current } = pagination;
 
     return (
@@ -345,7 +346,7 @@ export class Giphies extends React.Component {
           {fetching && <Loader />}
 
           <div className={'row'}>
-            {records.map((giphy) => (
+            {records.map(giphy => (
               <div
                 key={giphy.id}
                 className={'col-sm-6 col-md-4 col-lg-3 mt-3'}
@@ -354,15 +355,25 @@ export class Giphies extends React.Component {
                   id={`giphy-${giphy.id}`}
                   className={'card'}
                 >
-                  <img
-                    className={'object-fit-cover cursor-pointer rounded-top'}
-                    src={giphy.images.fixed_height_downsampled.url}
-                    alt={giphy.title}
+                  {giphy.loading && <div className={'placeholder-shimmer rounded-top'} />}
+
+                  <div
+                    className={'card__img'}
                     onClick={() => {
-                      this.props.actions.openModal(this.modalId);
+                      actions.openModal(this.modalId);
                       this.setState(() => ({ focusedGiphy: giphy }));
                     }}
-                  />
+                  >
+                    <img
+                      className={classnames('object-fit-cover cursor-pointer rounded-top', {
+                        'd-none': giphy.loading || giphy.loadFailed,
+                      })}
+                      src={giphy.images.fixed_height_downsampled.url}
+                      alt={giphy.title}
+                      onLoad={() => actions.giphyImageLoaded(giphy.id)}
+                      onError={() => actions.giphyImageErrored(giphy.id)}
+                    />
+                  </div>
 
                   <div className={'card-body card-body--rank-wrapper'}>
                     <RankControls

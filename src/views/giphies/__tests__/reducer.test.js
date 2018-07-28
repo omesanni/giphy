@@ -50,10 +50,56 @@ it('should update a particular giphy in records array', () => {
     },
   };
 
-  const baseState = { ...initialState, records: [{ id: 'ccc', _score: 5 }] };
+  const baseState = {
+    ...initialState,
+    records: [
+      { id: 'ccc', _score: 5 },
+      { id: 'cxx', _score: 8 },
+    ],
+  };
+
   const newState = reducer(fromJS(baseState), action);
 
   expect(newState.get('records').toJS()[0]).toEqual(action.data.giphy);
+});
+
+describe('updateGiphyLoadingStatus', () => {
+  const baseState = {
+    records: [
+      { id: 'ooo', loading: true },
+      { id: 'ppp', loading: true },
+    ],
+  };
+
+  it('should set giphy image `loadFailed` status to false', () => {
+    const action = {
+      type: 'GIPHY_IMAGE_LOADED',
+      data: { id: 'ooo' },
+    };
+
+    const newState = reducer(fromJS(baseState), action);
+    const result = [
+      { id: 'ooo', loading: false, loadFailed: false },
+      { id: 'ppp', loading: true },
+    ];
+
+    expect(newState.get('records').toJS()).toEqual(result);
+  });
+
+  it('should set giphy image `loadFailed` status to true', () => {
+    const action = {
+      type: 'GIPHY_IMAGE_ERRORED',
+      data: { id: 'ooo' },
+    };
+
+    const newState = reducer(fromJS(baseState), action);
+    const result = [
+      { id: 'ooo', loading: false, loadFailed: true },
+      { id: 'ppp', loading: true },
+    ];
+
+    expect(newState.get('records').toJS()).toEqual(result);
+  });
 });
 
 describe('SORT_GIPHIES', () => {

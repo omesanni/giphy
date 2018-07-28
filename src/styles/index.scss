@@ -4,6 +4,7 @@
 
 @import './node_modules/bootstrap/scss/bootstrap';
 
+@import 'generic/animation';
 @import 'generic/layout';
 
 @import 'components/header';
@@ -12,5 +13,6 @@
 @import 'components/button';
 @import 'components/modal';
 @import 'components/rank-controls';
+@import 'components/placeholder-shimmer';
 
 @import 'utilities/layout';

@@ -44,6 +44,17 @@ describe('Giphies', () => {
         fixed_height_downsampled: { url: 'http//www' },
       },
     },
+    {
+      id: 'tsn',
+      _score: 50,
+      rating: 'PG',
+      loading: true,
+      embed_url: 'http://embed',
+      images: {
+        downsized_medium: { url: 'http//www' },
+        fixed_height_downsampled: { url: 'http//www' },
+      },
+    },
   ];
 
   const giphies = {
@@ -62,13 +73,15 @@ describe('Giphies', () => {
       sortGiphies: jest.fn(),
       createModalStore: jest.fn(),
       deleteModalStore: jest.fn(),
+      giphyImageLoaded: jest.fn(),
+      giphyImageErrored: jest.fn(),
       fetchGiphies: jest.fn(() => Promise.resolve({ data: {} })),
       updateGiphy: jest.fn((update) => {
         const newGiphies = {
           ...giphies,
-          records: records.map((record) => {
-            return record.id === update.id ? update : record;
-          }),
+          records: records.map(record => (
+            record.id === update.id ? update : record
+          )),
         };
 
         component.setProps({ giphies: newGiphies });
@@ -82,7 +95,7 @@ describe('Giphies', () => {
   }
 
   function mountComponent(ownProps = props) {
-    return shallow(getGiphies(props));
+    return shallow(getGiphies(ownProps));
   }
 
   afterEach(() => {
@@ -127,6 +140,20 @@ describe('Giphies', () => {
     expect(component.find('#no-giphies').length).toBe(1);
   });
 
+  it('should trigger `giphyImageLoaded` action', () => {
+    component = mountComponent();
+
+    component.find(`#giphy-${records[3].id}`).find('img').simulate('load');
+    expect(props.actions.giphyImageLoaded).toHaveBeenCalledWith(records[3].id);
+  });
+
+  it('should trigger `giphyImageErrored` action', () => {
+    component = mountComponent();
+
+    component.find(`#giphy-${records[3].id}`).find('img').simulate('error');
+    expect(props.actions.giphyImageErrored).toHaveBeenCalledWith(records[3].id);
+  });
+
   it('should upvote giphy', () => {
     component = mountComponent();
     const instance = component.instance();
@@ -152,7 +179,7 @@ describe('Giphies', () => {
       component = mountComponent();
       const instance = component.instance();
 
-      component.find(`#giphy-${records[2].id}`).find('img').simulate('click');
+      component.find(`#giphy-${records[2].id}`).find('.card__img').simulate('click');
 
       expect(instance.state.focusedGiphy).toEqual(records[2]);
       expect(props.actions.openModal).toHaveBeenCalledWith(instance.modalId);
@@ -160,7 +187,7 @@ describe('Giphies', () => {
 
     it('should update `focusedGiphy` state when giphy is upvoted or downvoted', () => {
       component = mountComponent();
-      component.find(`#giphy-${records[1].id}`).find('img').simulate('click');
+      component.find(`#giphy-${records[1].id}`).find('.card__img').simulate('click');
 
       const oldState = component.instance().state.focusedGiphy;
       component.find('Modal').find('RankControls').props().onUpvote();
@@ -246,7 +273,9 @@ describe('Giphies', () => {
       component = mountComponent();
 
       component.instance().searchNode = { value: 'drake' };
-      component.find('#search-btn').simulate('click');
+      component.find('#header-control-form').simulate('submit', {
+        preventDefault: () => undefined,
+      });
 
       expect(props.actions.fetchGiphies).toHaveBeenCalled();
     });
@@ -255,7 +284,7 @@ describe('Giphies', () => {
       component = mountComponent();
       const instance = component.instance();
 
-      instance.searchNode = {}
+      instance.searchNode = {};
       instance.setState(() => ({ searchVal: 'demar defrozen' }));
 
       component.find('#page-limit-select').simulate('change', {

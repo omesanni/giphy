@@ -69,6 +69,7 @@ Modal.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   title: PropTypes.string,
+  modals: PropTypes.objectOf(PropTypes.object).isRequired,
 };
 
 Modal.defaultProps = {

@@ -12,8 +12,28 @@ const initialState = fromJS({
   pagination: {},
 });
 
+/**
+ * Updates the image loading status of a particular giphy
+ * in the giphies array
+ * @param  {Object} state
+ * @param  {Object} action
+ * @param  {Object} status Contains new loading status of giphy
+ * @return {Object}
+ */
+function updateGiphyLoadingStatus(state, action, status) {
+  const newRecords = state.get('records').toJS().map((record) => {
+    if (record.id === action.data.id) {
+      return { ...record, ...status };
+    }
+
+    return record;
+  });
+
+  return state.set('records', fromJS(newRecords));
+}
+
 export default handleActions({
-  FETCH_GIPHIES_START: (state, action) =>
+  FETCH_GIPHIES_START: state =>
     state.withMutations((s) => {
       s.set('fetching', true)
         .set('error', false);
@@ -25,12 +45,16 @@ export default handleActions({
         .set('fetching', false)
         .set('error', false);
     }),
-  FETCH_GIPHIES_ERROR: (state, action) =>
+  FETCH_GIPHIES_ERROR: state =>
     state.withMutations((s) => {
       s.set('records', fromJS([]))
         .set('fetching', false)
         .set('error', true);
     }),
+  GIPHY_IMAGE_LOADED: (state, action) =>
+    updateGiphyLoadingStatus(state, action, { loading: false, loadFailed: false }),
+  GIPHY_IMAGE_ERRORED: (state, action) =>
+    updateGiphyLoadingStatus(state, action, { loading: false, loadFailed: true }),
   UPDATE_GIPHY: (state, action) => {
     const newRecords = state.get('records').toJS().map((record) => {
       const { giphy } = action.data;
@@ -48,9 +72,9 @@ export default handleActions({
       return state.set('records', fromJS(shuffle(records)));
     }
 
-    const newRecords = records.sort((a, b) => {
-      return dir === 'desc' ? (b._score - a._score) : (a._score - b._score);
-    });
+    const newRecords = records.sort((a, b) => (
+      dir === 'desc' ? (b._score - a._score) : (a._score - b._score)
+    ));
 
     return state.set('records', fromJS(newRecords));
   },

@@ -21,9 +21,9 @@ const Pagination = (props) => {
 
     for (let i = range.min; isWithinRange(range, i, pages); i += 1) {
       buttons.push(
-        <li
+        <div
           className={classnames('page-item', {
-            'active': i === current,
+            active: i === current,
           })}
           key={i}
           onClick={() => { props.onChange(i); }}
@@ -31,7 +31,7 @@ const Pagination = (props) => {
           <span className={'page-link'}>
             {i}
           </span>
-        </li>
+        </div>
       );
     }
 
@@ -42,8 +42,8 @@ const Pagination = (props) => {
     <nav
       className={classnames('d-flex justify-content-center', props.className)}
     >
-      <ul className={'pagination'}>
-        <li
+      <div className={'pagination'}>
+        <div
           className={classnames('page-item', {
             'disabled no-pointer-events': !show.prev(),
           })}
@@ -52,53 +52,53 @@ const Pagination = (props) => {
           <span className={'page-link'}>
             {'Prev'}
           </span>
-        </li>
+        </div>
 
         {show.first() ? (
-          <li
+          <div
             className={'page-item'}
             onClick={() => { props.onChange(1); }}
           >
             <span className={'page-link'}>
               {1}
             </span>
-          </li>
+          </div>
         ) : null}
 
         {show.first() ? (
-          <li
+          <div
             className={'page-item disabled'}
           >
             <span className={'page-link'}>
               {'...'}
             </span>
-          </li>
+          </div>
         ) : null}
 
         {renderButtons()}
 
         {show.last() ? (
-          <li
+          <div
             className={'page-item disabled'}
           >
             <span className={'page-link'}>
               {'...'}
             </span>
-          </li>
+          </div>
         ) : null}
 
         {show.last() ? (
-          <li
+          <div
             className={'page-item'}
             onClick={() => { props.onChange(pages); }}
           >
             <span className={'page-link'}>
               {pages}
             </span>
-          </li>
+          </div>
         ) : null}
 
-        <li
+        <div
           className={classnames('page-item', {
             'disabled no-pointer-events': !show.next(),
           })}
@@ -107,8 +107,8 @@ const Pagination = (props) => {
           <span className={'page-link'}>
             {'Next'}
           </span>
-        </li>
-      </ul>
+        </div>
+      </div>
     </nav>
   );
 };
@@ -117,6 +117,7 @@ Pagination.propTypes = {
   current: PropTypes.number.isRequired,
   onChange: PropTypes.func,
   pages: PropTypes.number.isRequired,
+  spread: PropTypes.number,
   className: PropTypes.string,
 };
 

@@ -6,7 +6,17 @@
     "node": true
   },
   "globals": {
-    "SEARCH_API": true
+    "SEARCH_API": true,
+    "it": true,
+    "by": true,
+    "jest": true,
+    "expect": true,
+    "afterEach": true,
+    "beforeEach": true,
+    "describe": true,
+    "browser": true,
+    "element": true,
+    "protractor": true
   },
   "rules": {
     "class-methods-use-this": "off",
@@ -24,6 +34,7 @@
     "prefer-promise-reject-errors": "off",
     "import/extensions": "off",
     "import/first": "off",
+    "import/no-named-as-default": "off",
     "import/no-extraneous-dependencies": "off",
     "import/no-unresolved": ["error", { ignore: ['^\@root'] }],
     "import/prefer-default-export": "off",

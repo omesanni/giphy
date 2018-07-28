@@ -7,7 +7,7 @@ exports.config = {
     browser.ignoreSynchronization = true;
     browser.driver.manage().window().maximize();
 
-    require('./tasks/setupe2eTests');
+    require('./tasks/setupe2eTests'); // eslint-disable-line
   },
   allScriptsTimeout: 15000,
-}
+};

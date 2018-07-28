@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import DefaultLayout from './components/DefaultLayout';
 import Giphies from './views/giphies/Giphies';
@@ -9,7 +8,7 @@ const Router = () => (
     <Switch>
       <Route
         exact
-        path='/'
+        path={'/'}
         render={props => (
           <DefaultLayout>
             <Giphies {...props} />

@@ -14,6 +14,11 @@ const Loader = props => (
   </div>
 );
 
+Loader.propTypes = {
+  color: PropTypes.string,
+  size: PropTypes.string,
+};
+
 Loader.defaultProps = {
   color: '',
   size: '2x',

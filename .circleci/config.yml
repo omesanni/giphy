@@ -1,0 +1,38 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:7.9.0
+
+    deploy:
+      environment:
+        HEROKU_APP: giphs
+
+      filters:
+        branches:
+          only: master
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+
+      - run: npm install
+
+      - run: npm run webdriver-update
+
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+
+      - run: npm run lint
+
+      - run: npm test
+
+      - run:
+          command: npm start
+          background: true
+
+      - run: npm run e2e

@@ -9,7 +9,33 @@ import {
   FETCH_GIPHIES_ERROR,
   UPDATE_GIPHY,
   SORT_GIPHIES,
+  GIPHY_IMAGE_LOADED,
+  GIPHY_IMAGE_ERRORED,
 } from './constants';
+
+/**
+ * Giphy image loaded successfully
+ * @param  {String} id
+ * @return {Object}
+ */
+export function giphyImageLoaded(id) {
+  return {
+    type: GIPHY_IMAGE_LOADED,
+    data: { id },
+  };
+}
+
+/**
+ * Giphy image failed to load
+ * @param  {String} id
+ * @return {Object}
+ */
+export function giphyImageErrored(id) {
+  return {
+    type: GIPHY_IMAGE_ERRORED,
+    data: { id },
+  };
+}
 
 /**
  * Sort giphies array in ascending or descending order
@@ -58,7 +84,7 @@ export function fetchGiphies(query) {
             records: data.map((record) => {
               const saved = fetchFromLocalStorage(record.id);
 
-              return saved || record;
+              return { ...(saved || record), loading: true };
             }),
             pagination: {
               ...pagination,

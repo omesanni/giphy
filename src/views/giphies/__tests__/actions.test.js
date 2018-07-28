@@ -5,6 +5,8 @@ import {
   sortGiphies,
   updateGiphy,
   fetchGiphies,
+  giphyImageLoaded,
+  giphyImageErrored,
 } from '../actions';
 import {
   FETCH_GIPHIES_START,
@@ -12,6 +14,8 @@ import {
   FETCH_GIPHIES_ERROR,
   UPDATE_GIPHY,
   SORT_GIPHIES,
+  GIPHY_IMAGE_LOADED,
+  GIPHY_IMAGE_ERRORED,
 } from '../constants';
 
 const state = {
@@ -26,6 +30,20 @@ describe('Giphies actions', () => {
   beforeEach(() => {
     store.clearActions();
     jest.clearAllMocks();
+  });
+
+  it('should dispatch GIPHY_IMAGE_LOADED action', () => {
+    store.dispatch(giphyImageLoaded(1));
+    const actions = store.getActions();
+
+    expect(actions[0].type).toEqual(GIPHY_IMAGE_LOADED);
+  });
+
+  it('should dispatch GIPHY_IMAGE_ERRORED action', () => {
+    store.dispatch(giphyImageErrored(1));
+    const actions = store.getActions();
+
+    expect(actions[0].type).toEqual(GIPHY_IMAGE_ERRORED);
   });
 
   it('should dispatch SORT_GIPHIES action', () => {
@@ -45,7 +63,22 @@ describe('Giphies actions', () => {
   describe('fetchGiphies()', () => {
     it('should fetch giphies successfully', () => {
       const response = {
-        data: { data: [], pagination: {} },
+        data: {
+          data: [{
+            id: 'aaa',
+            _score: 20,
+            title: 'cash me outside how bout dah',
+            username: 'dirtydozen',
+            rating: 'G',
+            source: 'http://youtube',
+            embed_url: 'http://embed',
+            images: {
+              downsized_medium: { url: 'http//www' },
+              fixed_height_downsampled: { url: 'http//www' },
+            },
+          }],
+          pagination: {},
+        },
       };
 
       jest.spyOn(axios, 'get').mockImplementation(() => Promise.resolve(response));

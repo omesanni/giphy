@@ -28,6 +28,7 @@ const RankControls = props => (
 );
 
 RankControls.propTypes = {
+  className: PropTypes.string,
   onUpvote: PropTypes.func.isRequired,
   onDownvote: PropTypes.func.isRequired,
   score: PropTypes.oneOfType([
@@ -38,6 +39,6 @@ RankControls.propTypes = {
 
 RankControls.defaultProps = {
   className: '',
-}
+};
 
 export default RankControls;

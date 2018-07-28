@@ -27,7 +27,7 @@ describe('Giphies', () => {
 
   it('should search for tag when search button is clicked', (done) => {
     performSearch().then((present) => {
-      expect(present).to.be.true;
+      expect(present).to.be.true; // eslint-disable-line
       done();
     });
   });
@@ -49,10 +49,10 @@ describe('Giphies', () => {
 
   it('should show modal when a giphy is clicked', (done) => {
     performSearch().then(() => {
-      resultElement.element(by.tagName('img')).click();
+      resultElement.element(by.className('card__img')).click();
 
       giphiesPage.modal.getAttribute('class').then((className) => {
-        expect(className.includes('is-open')).to.be.true;
+        expect(className.includes('is-open')).to.be.true; // eslint-disable-line
         done();
       });
     });

@@ -13,7 +13,7 @@ describe('Pagination', () => {
   };
 
   function getPagination(p = props) {
-    return <Pagination {...p} />
+    return <Pagination {...p} />;
   }
 
   function mountComponent(ownProps = props) {
