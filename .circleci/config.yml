@@ -20,6 +20,7 @@ jobs:
 
       - run: npm run lint
       - run: npm test
+      - run: NODE_ENV=production npm run build
       - run: NODE_ENV=test npm run server & npm run e2e
       - run: bash .circleci/setup-heroku.sh
       - add_ssh_keys:
