@@ -5,7 +5,7 @@ const applyDevMiddlewares = require('./applyDevMiddlewares');
 
 const app = express();
 const port = process.env.PORT || 3000;
-const DEBUG = process.env.NODE_ENV !== 'production';
+const DEBUG = process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test';
 
 app.use(express.static(config.output.path));
 

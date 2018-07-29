@@ -1,14 +1,5 @@
 version: 2
 jobs:
-  deploy:
-    machine: true
-    steps:
-      - checkout
-      - run:
-          name: Deploy Master to Heroku
-          command: |
-            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
-
   build:
     docker:
       - image: cypress/base:8
@@ -28,6 +19,24 @@ jobs:
             - ~/.cache
 
       - run: npm run lint
-      - run: NODE_ENV=production npm start -- --silent &
       - run: npm test
-      - run: npm run e2e
+      - run: NODE_ENV=test npm run server & npm run e2e
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              git push heroku master
+            fi
+
+  deploy:
+    machine:
+      enabled: true
+
+    steps:
+      - checkout
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              git push heroku master
+            fi
