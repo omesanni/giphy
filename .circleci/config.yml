@@ -27,7 +27,7 @@ jobs:
       - run: npm run lint
       - run: npm test
       - run:
-          command: NODE_ENV=production npm start
+          command: NODE_ENV=production npm start & npm run wait-on
           background: true
 
       - run: npm run e2e
