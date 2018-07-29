@@ -1,4 +1,4 @@
-const Giphies = require('./page-objects/giphies');
+const Giphies = require('../page-objects/giphies');
 
 describe('Giphies', () => {
   const giphiesPage = new Giphies();
@@ -48,7 +48,7 @@ describe('Giphies', () => {
     performSearch();
 
     firstGiph.find('.badge').invoke('text').then((oldScore) => {
-      // did not use `firstGiph` because cypress assigns the element you found inside
+      // did not use `firstGiph` because cypress assigns the element you find inside it
       // to `firstGiph` itself
       giphiesPage.allGiphies().first().find('.rank-controls__up').click();
 
@@ -64,7 +64,7 @@ describe('Giphies', () => {
     performSearch();
 
     firstGiph.find('.badge').invoke('text').then((oldScore) => {
-      // did not use `firstGiph` because cypress assigns the element you found inside
+      // did not use `firstGiph` because cypress assigns the element you find inside it
       // to `firstGiph` itself
       giphiesPage.allGiphies().first().find('.rank-controls__down').click();
 

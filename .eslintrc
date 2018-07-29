@@ -8,16 +8,12 @@
   "globals": {
     "SEARCH_API": true,
     "it": true,
-    "by": true,
     "cy": true,
     "jest": true,
     "expect": true,
     "afterEach": true,
     "beforeEach": true,
-    "describe": true,
-    "browser": true,
-    "element": true,
-    "protractor": true,
+    "describe": true
   },
   "rules": {
     "class-methods-use-this": "off",
