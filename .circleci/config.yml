@@ -16,15 +16,18 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
+          key: v1-deps-{{ .Branch }}
+          key: v1-dep
 
       - run: npm install
       - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
-            - node_modules
+            - ~/.npm
             - ~/.cache
 
       - run: npm run lint
+      - run: NODE_ENV=production npm start -- --silent &
       - run: npm test
-      - run: NODE_ENV=production npm start & npm run wait-on & npm run e2e
+      - run: npm run e2e
