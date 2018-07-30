@@ -13,7 +13,8 @@
     "e2e": "npm run cypress:run",
     "cypress:run": "cypress run",
     "cypress:open": "cypress open",
-    "lint": "eslint --ext .jsx --ext .js ."
+    "lint": "eslint --ext .jsx --ext .js .",
+    "postinstall": "npm run build"
   },
   "engines": {
     "node": "~7.2.0",
