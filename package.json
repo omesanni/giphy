@@ -14,7 +14,7 @@
     "cypress:run": "cypress run",
     "cypress:open": "cypress open",
     "lint": "eslint --ext .jsx --ext .js .",
-    "postinstall": "npm run build"
+    "postinstall": "NODE_ENV=production webpack --env.production --config ./config/webpack.prod.config.js --progress"
   },
   "engines": {
     "node": "~7.2.0",
