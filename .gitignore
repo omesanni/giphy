@@ -4,6 +4,7 @@
 node_modules
 npm-debug.log
 cypress
+dist
 yarn-error.log
 yarn.lock
 yarn-error.log

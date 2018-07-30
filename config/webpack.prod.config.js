@@ -1,3 +1,4 @@
+const path = require('path');
 const merge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -52,7 +53,7 @@ const prodConfig = {
     },
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['dist'], { root: path.resolve(__dirname, '..') }),
     new ExtractTextPlugin('[name]-[hash].css'),
   ],
 };

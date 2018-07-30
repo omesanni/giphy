@@ -13,9 +13,9 @@
     "e2e": "npm run cypress:run",
     "cypress:run": "cypress run",
     "cypress:open": "cypress open",
-    "lint": "eslint --ext .jsx --ext .js .",
-    "heroku:build": "NODE_ENV=production webpack --config ./config/webpack.prod.config.js -p",
-    "heroku-postbuild": "npm run heroku:build"
+    "lint": "eslint --ignore-path .gitignore --ext .jsx --ext .js .",
+    "ci:build": "NODE_ENV=production webpack --config ./config/webpack.prod.config.js -p",
+    "heroku-postbuild": "npm run ci:build"
   },
   "engines": {
     "node": "~7.2.0",
