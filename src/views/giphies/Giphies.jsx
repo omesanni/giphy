@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -342,8 +342,8 @@ export class Giphies extends React.Component {
     const { pages, current } = pagination;
 
     return (
-      <div className={'card-body'}>
-        <div className={'position-relative'}>
+      <div className={'card-body position-relative'}>
+        <Fragment>
           {fetching && <Loader />}
 
           <div className={'row'}>
@@ -411,7 +411,7 @@ export class Giphies extends React.Component {
               }}
             />
           )}
-        </div>
+        </Fragment>
       </div>
     );
   }

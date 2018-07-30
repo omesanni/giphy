@@ -107,357 +107,353 @@ exports[`Giphies renders 1`] = `
     </form>
   </div>
   <div
-    className="card-body"
+    className="card-body position-relative"
   >
     <div
-      className="position-relative"
+      className="row"
     >
       <div
-        className="row"
+        className="col-sm-6 col-md-4 col-lg-3 mt-3"
       >
         <div
-          className="col-sm-6 col-md-4 col-lg-3 mt-3"
+          className="card"
+          id="giphy-aaa"
         >
           <div
-            className="card"
-            id="giphy-aaa"
+            className="card__img"
+            onClick={[Function]}
           >
-            <div
-              className="card__img"
-              onClick={[Function]}
-            >
-              <img
-                alt="cash me outside how bout dah"
-                className="object-fit-cover cursor-pointer rounded-top"
-                onError={[Function]}
-                onLoad={[Function]}
-                src="http//www"
-              />
-            </div>
-            <div
-              className="card-body card-body--rank-wrapper"
-            >
-              <div
-                className="rank-controls"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="svg-inline--fa fa-arrow-up fa-w-14 rank-controls__up mr-3"
-                  data-icon="arrow-up"
-                  data-prefix="fas"
-                  onClick={[Function]}
-                  role="img"
-                  style={Object {}}
-                  viewBox="0 0 448 512"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"
-                    fill="currentColor"
-                    style={Object {}}
-                  />
-                </svg>
-                <span
-                  className="badge badge-pill badge-secondary"
-                >
-                  20
-                </span>
-                <svg
-                  aria-hidden="true"
-                  className="svg-inline--fa fa-arrow-down fa-w-14 rank-controls__down ml-3"
-                  data-icon="arrow-down"
-                  data-prefix="fas"
-                  onClick={[Function]}
-                  role="img"
-                  style={Object {}}
-                  viewBox="0 0 448 512"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"
-                    fill="currentColor"
-                    style={Object {}}
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="col-sm-6 col-md-4 col-lg-3 mt-3"
-        >
-          <div
-            className="card"
-            id="giphy-bbb"
-          >
-            <div
-              className="card__img"
-              onClick={[Function]}
-            >
-              <img
-                alt="put some respeck on my name"
-                className="object-fit-cover cursor-pointer rounded-top"
-                onError={[Function]}
-                onLoad={[Function]}
-                src="http//www"
-              />
-            </div>
-            <div
-              className="card-body card-body--rank-wrapper"
-            >
-              <div
-                className="rank-controls"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="svg-inline--fa fa-arrow-up fa-w-14 rank-controls__up mr-3"
-                  data-icon="arrow-up"
-                  data-prefix="fas"
-                  onClick={[Function]}
-                  role="img"
-                  style={Object {}}
-                  viewBox="0 0 448 512"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"
-                    fill="currentColor"
-                    style={Object {}}
-                  />
-                </svg>
-                <span
-                  className="badge badge-pill badge-secondary"
-                >
-                  30
-                </span>
-                <svg
-                  aria-hidden="true"
-                  className="svg-inline--fa fa-arrow-down fa-w-14 rank-controls__down ml-3"
-                  data-icon="arrow-down"
-                  data-prefix="fas"
-                  onClick={[Function]}
-                  role="img"
-                  style={Object {}}
-                  viewBox="0 0 448 512"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"
-                    fill="currentColor"
-                    style={Object {}}
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="col-sm-6 col-md-4 col-lg-3 mt-3"
-        >
-          <div
-            className="card"
-            id="giphy-ccc"
-          >
-            <div
-              className="card__img"
-              onClick={[Function]}
-            >
-              <img
-                className="object-fit-cover cursor-pointer rounded-top"
-                onError={[Function]}
-                onLoad={[Function]}
-                src="http//www"
-              />
-            </div>
-            <div
-              className="card-body card-body--rank-wrapper"
-            >
-              <div
-                className="rank-controls"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="svg-inline--fa fa-arrow-up fa-w-14 rank-controls__up mr-3"
-                  data-icon="arrow-up"
-                  data-prefix="fas"
-                  onClick={[Function]}
-                  role="img"
-                  style={Object {}}
-                  viewBox="0 0 448 512"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"
-                    fill="currentColor"
-                    style={Object {}}
-                  />
-                </svg>
-                <span
-                  className="badge badge-pill badge-secondary"
-                >
-                  10
-                </span>
-                <svg
-                  aria-hidden="true"
-                  className="svg-inline--fa fa-arrow-down fa-w-14 rank-controls__down ml-3"
-                  data-icon="arrow-down"
-                  data-prefix="fas"
-                  onClick={[Function]}
-                  role="img"
-                  style={Object {}}
-                  viewBox="0 0 448 512"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"
-                    fill="currentColor"
-                    style={Object {}}
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="col-sm-6 col-md-4 col-lg-3 mt-3"
-        >
-          <div
-            className="card"
-            id="giphy-tsn"
-          >
-            <div
-              className="placeholder-shimmer rounded-top"
+            <img
+              alt="cash me outside how bout dah"
+              className="object-fit-cover cursor-pointer rounded-top"
+              onError={[Function]}
+              onLoad={[Function]}
+              src="http//www"
             />
+          </div>
+          <div
+            className="card-body card-body--rank-wrapper"
+          >
             <div
-              className="card__img"
-              onClick={[Function]}
+              className="rank-controls"
             >
-              <img
-                className="object-fit-cover cursor-pointer rounded-top d-none"
-                onError={[Function]}
-                onLoad={[Function]}
-                src="http//www"
-              />
-            </div>
-            <div
-              className="card-body card-body--rank-wrapper"
-            >
-              <div
-                className="rank-controls"
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-arrow-up fa-w-14 rank-controls__up mr-3"
+                data-icon="arrow-up"
+                data-prefix="fas"
+                onClick={[Function]}
+                role="img"
+                style={Object {}}
+                viewBox="0 0 448 512"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  aria-hidden="true"
-                  className="svg-inline--fa fa-arrow-up fa-w-14 rank-controls__up mr-3"
-                  data-icon="arrow-up"
-                  data-prefix="fas"
-                  onClick={[Function]}
-                  role="img"
+                <path
+                  d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"
+                  fill="currentColor"
                   style={Object {}}
-                  viewBox="0 0 448 512"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"
-                    fill="currentColor"
-                    style={Object {}}
-                  />
-                </svg>
-                <span
-                  className="badge badge-pill badge-secondary"
-                >
-                  50
-                </span>
-                <svg
-                  aria-hidden="true"
-                  className="svg-inline--fa fa-arrow-down fa-w-14 rank-controls__down ml-3"
-                  data-icon="arrow-down"
-                  data-prefix="fas"
-                  onClick={[Function]}
-                  role="img"
+                />
+              </svg>
+              <span
+                className="badge badge-pill badge-secondary"
+              >
+                20
+              </span>
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-arrow-down fa-w-14 rank-controls__down ml-3"
+                data-icon="arrow-down"
+                data-prefix="fas"
+                onClick={[Function]}
+                role="img"
+                style={Object {}}
+                viewBox="0 0 448 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"
+                  fill="currentColor"
                   style={Object {}}
-                  viewBox="0 0 448 512"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"
-                    fill="currentColor"
-                    style={Object {}}
-                  />
-                </svg>
-              </div>
+                />
+              </svg>
             </div>
           </div>
         </div>
       </div>
-      <nav
-        className="d-flex justify-content-center mt-5"
+      <div
+        className="col-sm-6 col-md-4 col-lg-3 mt-3"
       >
         <div
-          className="pagination"
+          className="card"
+          id="giphy-bbb"
         >
           <div
-            className="page-item disabled no-pointer-events"
+            className="card__img"
             onClick={[Function]}
           >
-            <span
-              className="page-link"
-            >
-              Prev
-            </span>
+            <img
+              alt="put some respeck on my name"
+              className="object-fit-cover cursor-pointer rounded-top"
+              onError={[Function]}
+              onLoad={[Function]}
+              src="http//www"
+            />
           </div>
           <div
-            className="page-item active"
-            onClick={[Function]}
+            className="card-body card-body--rank-wrapper"
           >
-            <span
-              className="page-link"
+            <div
+              className="rank-controls"
             >
-              1
-            </span>
-          </div>
-          <div
-            className="page-item"
-            onClick={[Function]}
-          >
-            <span
-              className="page-link"
-            >
-              2
-            </span>
-          </div>
-          <div
-            className="page-item"
-            onClick={[Function]}
-          >
-            <span
-              className="page-link"
-            >
-              3
-            </span>
-          </div>
-          <div
-            className="page-item"
-            onClick={[Function]}
-          >
-            <span
-              className="page-link"
-            >
-              4
-            </span>
-          </div>
-          <div
-            className="page-item"
-            onClick={[Function]}
-          >
-            <span
-              className="page-link"
-            >
-              Next
-            </span>
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-arrow-up fa-w-14 rank-controls__up mr-3"
+                data-icon="arrow-up"
+                data-prefix="fas"
+                onClick={[Function]}
+                role="img"
+                style={Object {}}
+                viewBox="0 0 448 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+              <span
+                className="badge badge-pill badge-secondary"
+              >
+                30
+              </span>
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-arrow-down fa-w-14 rank-controls__down ml-3"
+                data-icon="arrow-down"
+                data-prefix="fas"
+                onClick={[Function]}
+                role="img"
+                style={Object {}}
+                viewBox="0 0 448 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </div>
           </div>
         </div>
-      </nav>
+      </div>
+      <div
+        className="col-sm-6 col-md-4 col-lg-3 mt-3"
+      >
+        <div
+          className="card"
+          id="giphy-ccc"
+        >
+          <div
+            className="card__img"
+            onClick={[Function]}
+          >
+            <img
+              className="object-fit-cover cursor-pointer rounded-top"
+              onError={[Function]}
+              onLoad={[Function]}
+              src="http//www"
+            />
+          </div>
+          <div
+            className="card-body card-body--rank-wrapper"
+          >
+            <div
+              className="rank-controls"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-arrow-up fa-w-14 rank-controls__up mr-3"
+                data-icon="arrow-up"
+                data-prefix="fas"
+                onClick={[Function]}
+                role="img"
+                style={Object {}}
+                viewBox="0 0 448 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+              <span
+                className="badge badge-pill badge-secondary"
+              >
+                10
+              </span>
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-arrow-down fa-w-14 rank-controls__down ml-3"
+                data-icon="arrow-down"
+                data-prefix="fas"
+                onClick={[Function]}
+                role="img"
+                style={Object {}}
+                viewBox="0 0 448 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-sm-6 col-md-4 col-lg-3 mt-3"
+      >
+        <div
+          className="card"
+          id="giphy-tsn"
+        >
+          <div
+            className="placeholder-shimmer rounded-top"
+          />
+          <div
+            className="card__img"
+            onClick={[Function]}
+          >
+            <img
+              className="object-fit-cover cursor-pointer rounded-top d-none"
+              onError={[Function]}
+              onLoad={[Function]}
+              src="http//www"
+            />
+          </div>
+          <div
+            className="card-body card-body--rank-wrapper"
+          >
+            <div
+              className="rank-controls"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-arrow-up fa-w-14 rank-controls__up mr-3"
+                data-icon="arrow-up"
+                data-prefix="fas"
+                onClick={[Function]}
+                role="img"
+                style={Object {}}
+                viewBox="0 0 448 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+              <span
+                className="badge badge-pill badge-secondary"
+              >
+                50
+              </span>
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-arrow-down fa-w-14 rank-controls__down ml-3"
+                data-icon="arrow-down"
+                data-prefix="fas"
+                onClick={[Function]}
+                role="img"
+                style={Object {}}
+                viewBox="0 0 448 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <nav
+      className="d-flex justify-content-center mt-5"
+    >
+      <div
+        className="pagination"
+      >
+        <div
+          className="page-item disabled no-pointer-events"
+          onClick={[Function]}
+        >
+          <span
+            className="page-link"
+          >
+            Prev
+          </span>
+        </div>
+        <div
+          className="page-item active"
+          onClick={[Function]}
+        >
+          <span
+            className="page-link"
+          >
+            1
+          </span>
+        </div>
+        <div
+          className="page-item"
+          onClick={[Function]}
+        >
+          <span
+            className="page-link"
+          >
+            2
+          </span>
+        </div>
+        <div
+          className="page-item"
+          onClick={[Function]}
+        >
+          <span
+            className="page-link"
+          >
+            3
+          </span>
+        </div>
+        <div
+          className="page-item"
+          onClick={[Function]}
+        >
+          <span
+            className="page-link"
+          >
+            4
+          </span>
+        </div>
+        <div
+          className="page-item"
+          onClick={[Function]}
+        >
+          <span
+            className="page-link"
+          >
+            Next
+          </span>
+        </div>
+      </div>
+    </nav>
   </div>
   <div
     className="modal is-open"
