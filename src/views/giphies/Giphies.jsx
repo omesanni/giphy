@@ -37,20 +37,21 @@ export class Giphies extends React.Component {
     this.renderGiphyDetailsModal = this.renderGiphyDetailsModal.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { focusedGiphy } = this.state;
+  static getDerivedStateFromProps(props, state) {
+    const { focusedGiphy } = state;
 
     if (focusedGiphy) {
-      const { records: nextRecords } = nextProps.giphies;
-      const { records } = this.props.giphies;
-
-      const nextRecord = nextRecords.find(n => (n.id === focusedGiphy.id));
+      const { records } = props.giphies;
       const record = records.find(r => (r.id === focusedGiphy.id));
 
-      if (!isEqual(record, nextRecord)) {
-        this.setState(() => ({ focusedGiphy: nextRecord }));
+      if (!isEqual(record, focusedGiphy)) {
+        return { focusedGiphy: record };
       }
+
+      return null;
     }
+
+    return null;
   }
 
   /**
