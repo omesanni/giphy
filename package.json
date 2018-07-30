@@ -14,7 +14,8 @@
     "cypress:run": "cypress run",
     "cypress:open": "cypress open",
     "lint": "eslint --ext .jsx --ext .js .",
-    "postinstall": "NODE_ENV=production webpack --env.production --config ./config/webpack.prod.config.js --progress"
+    "heroku:build": "NODE_ENV=production webpack --config ./config/webpack.prod.config.js -p",
+    "heroku-postbuild": "npm run heroku:build"
   },
   "engines": {
     "node": "~7.2.0",
@@ -41,6 +42,7 @@
     "bootstrap": "^4.1.1",
     "classnames": "^2.2.5",
     "css-loader": "^0.28.11",
+    "cssnano": "^4.0.4",
     "express": "^4.16.3",
     "immutable": "^3.8.2",
     "lodash": "^4.17.10",
@@ -48,6 +50,8 @@
     "mocha": "^5.2.0",
     "node-sass": "^4.9.0",
     "numeral": "^2.0.6",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^11.1.0",
     "postcss-loader": "^2.1.5",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
