@@ -265,7 +265,7 @@ export class Giphies extends React.Component {
               type={'text'}
               ref={(node) => { this.searchNode = node; }}
               placeholder={'Search...'}
-              className={'form-control form-control-sm'}
+              className={'form-control form-control-sm h-auto'}
             />
 
             <div className={'input-group-append'}>

@@ -19,7 +19,7 @@ exports[`Giphies renders 1`] = `
           className="input-group"
         >
           <input
-            className="form-control form-control-sm"
+            className="form-control form-control-sm h-auto"
             id="search-input"
             placeholder="Search..."
             type="text"

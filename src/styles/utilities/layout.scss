@@ -9,3 +9,7 @@
 .cursor-pointer {
   @include cursor-pointer;
 }
+
+.h-auto {
+  height: auto;
+}
