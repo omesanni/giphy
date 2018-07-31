@@ -9,6 +9,9 @@ describe('Giphies', () => {
     giphiesPage.startBrowser();
   });
 
+  /**
+   * Carries out search when search button is clicked
+   */
   function performSearch() {
     giphiesPage.searchInput().type('drake');
     giphiesPage.searchButton().click();
@@ -16,11 +19,18 @@ describe('Giphies', () => {
     firstGiph = giphiesPage.allGiphies().first();
   }
 
+  /**
+   * Convert formatted score from String to Number
+   * @param  {[String} score Giphy score ranking
+   * @return {Number}
+   */
   function convertScoreToNumber(score) {
     return Number(score.replace(/,/g, ''));
   }
 
   it('should search for tag when search button is clicked', () => {
+    giphiesPage.allGiphies().should('not.be.visible');
+
     performSearch();
 
     giphiesPage.allGiphies().its('length').should('be.gt', 0);

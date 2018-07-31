@@ -7,6 +7,9 @@ class Giphies {
     this.sortingSelect = () => cy.get('#sort-select');
   }
 
+  /**
+   * Open up location on browser
+   */
   startBrowser() {
     cy.visit('/');
   }
