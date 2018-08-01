@@ -15,12 +15,13 @@ describe('AsyncComponent', () => {
 
   it('renders', (done) => {
     const promise = Promise.resolve({ default: AsyncComponent });
-    const props = { render: () => promise };
+    const props = { render: jest.fn(() => promise) };
 
     component = mountComponent(props);
     const instance = component.instance();
 
     promise.then(() => {
+      expect(props.render).toHaveBeenCalled();
       expect(instance.state.Component).toBeTruthy();
       done();
     });
@@ -28,19 +29,17 @@ describe('AsyncComponent', () => {
 
   it('renders nothing', (done) => {
     const promise = Promise.reject();
-    const props = { render: () => promise };
+    const props = { render: jest.fn(() => promise) };
 
     jest.spyOn(console, 'error');
     component = mountComponent(props);
 
     const instance = component.instance();
 
-    promise
-      .then(() => undefined)
-      .catch(() => {
-        expect(console.error).toHaveBeenCalled(); // eslint-disable-line
-        expect(instance.state.Component).toBeFalsy();
-        done();
-      });
+    promise.then(() => undefined).catch(() => {
+      expect(props.render).toHaveBeenCalled();
+      expect(instance.state.Component).toBeFalsy();
+      done();
+    });
   });
 });
