@@ -10,6 +10,10 @@ describe('lib', () => {
     it('should format currency using specified format', () => {
       expect(lib.formatNumber(2000, '0,0')).toEqual('2,000');
     });
+
+    it('should return 0', () => {
+      expect(lib.formatNumber()).toEqual('0');
+    });
   });
 
   describe('saveToLocalStorage()', () => {
@@ -38,6 +42,10 @@ describe('lib', () => {
       const output = 'q=drake&limit=25&offset=0';
 
       expect(lib.stringifyQuery(query)).toEqual(output);
+    });
+
+    it('should return empty string', () => {
+      expect(lib.stringifyQuery()).toEqual('');
     });
   });
 
