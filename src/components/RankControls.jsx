@@ -12,7 +12,7 @@ const RankControls = props => (
     <FontAwesomeIcon
       icon={faArrowUp}
       className={'rank-controls__up mr-3'}
-      onClick={() => props.onUpvote()}
+      onClick={props.onUpvote}
     />
 
     <span className={'badge badge-pill badge-secondary'}>
@@ -22,7 +22,7 @@ const RankControls = props => (
     <FontAwesomeIcon
       icon={faArrowDown}
       className={'rank-controls__down ml-3'}
-      onClick={() => props.onDownvote()}
+      onClick={props.onDownvote}
     />
   </div>
 );
