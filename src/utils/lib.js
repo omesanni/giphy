@@ -1,4 +1,6 @@
+import React from 'react';
 import numeral from 'numeral';
+import AsyncComponent from '../components/AsyncComponent';
 
 /**
  * Check if a number is within range for pagination, etc.
@@ -85,4 +87,14 @@ export function stringifyQuery(query = {}) {
   });
 
   return queryStr;
+}
+
+/**
+ * Lazy loads a component
+ * @param  {Function} getComponent Returns a dynamic import of the component
+ * @param  {Object}   props
+ * @return {ReactElement}
+ */
+export function lazyLoadComponent(getComponent, props = {}) {
+  return React.createElement(AsyncComponent, { ...props, render: getComponent });
 }

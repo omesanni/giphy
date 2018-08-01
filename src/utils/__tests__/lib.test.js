@@ -1,3 +1,4 @@
+import React from 'react';
 import * as lib from '../lib';
 
 describe('lib', () => {
@@ -62,6 +63,14 @@ describe('lib', () => {
 
       expect(range.min).not.toEqual(1);
       expect(range.max).not.toEqual(25);
+    });
+  });
+
+  describe('lazyLoadComponent()', () => {
+    it('should return an aysnchronous component', () => {
+      const component = lib.lazyLoadComponent(() => undefined);
+
+      expect(React.isValidElement(component)).toBe(true);
     });
   });
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { lazyLoadComponent } from './utils/lib';
 import DefaultLayout from './components/DefaultLayout';
-import Giphies from './views/giphies/Giphies';
 
 const Router = () => (
   <BrowserRouter>
@@ -11,7 +11,7 @@ const Router = () => (
         path={'/'}
         render={props => (
           <DefaultLayout>
-            <Giphies {...props} />
+            {lazyLoadComponent(() => import('./views/giphies/Giphies'), props)}
           </DefaultLayout>
         )}
       />
