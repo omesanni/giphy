@@ -12,6 +12,16 @@ describe('lib', () => {
     });
   });
 
+  describe('saveToLocalStorage()', () => {
+    it('should store data to local storage', () => {
+      const data = { name: 'ome' };
+
+      lib.saveToLocalStorage('abc', data);
+
+      expect(lib.fetchFromLocalStorage('abc')).toEqual(data);
+    });
+  });
+
   describe('fetchFromLocalStorage()', () => {
     it('should fetch data from local storage', () => {
       const data = { name: 'john' };
