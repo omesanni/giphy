@@ -31,9 +31,7 @@ describe('AsyncComponent', () => {
     const promise = Promise.reject();
     const props = { render: jest.fn(() => promise) };
 
-    jest.spyOn(console, 'error');
     component = mountComponent(props);
-
     const instance = component.instance();
 
     promise.then(() => undefined).catch(() => {
