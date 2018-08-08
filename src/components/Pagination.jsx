@@ -26,7 +26,7 @@ const Pagination = (props) => {
             active: i === current,
           })}
           key={i}
-          onClick={() => { props.onChange(i); }}
+          onClick={() => props.onChange(i)}
         >
           <span className={'page-link'}>
             {i}
@@ -47,7 +47,7 @@ const Pagination = (props) => {
           className={classnames('page-item', {
             'disabled no-pointer-events': !show.prev(),
           })}
-          onClick={() => { props.onChange(current - 1); }}
+          onClick={() => props.onChange(current - 1)}
         >
           <span className={'page-link'}>
             {'Prev'}
@@ -57,7 +57,7 @@ const Pagination = (props) => {
         {show.first() ? (
           <div
             className={'page-item'}
-            onClick={() => { props.onChange(1); }}
+            onClick={() => props.onChange(1)}
           >
             <span className={'page-link'}>
               {1}
@@ -90,7 +90,7 @@ const Pagination = (props) => {
         {show.last() ? (
           <div
             className={'page-item'}
-            onClick={() => { props.onChange(pages); }}
+            onClick={() => props.onChange(pages)}
           >
             <span className={'page-link'}>
               {pages}
@@ -102,7 +102,7 @@ const Pagination = (props) => {
           className={classnames('page-item', {
             'disabled no-pointer-events': !show.next(),
           })}
-          onClick={() => { props.onChange(current + 1); }}
+          onClick={() => props.onChange(current + 1)}
         >
           <span className={'page-link'}>
             {'Next'}

@@ -21,7 +21,7 @@ describe('Giphies', () => {
 
   /**
    * Convert formatted score from String to Number
-   * @param  {[String} score Giphy score ranking
+   * @param  {String} score Giphy score ranking
    * @return {Number}
    */
   function convertScoreToNumber(score) {
